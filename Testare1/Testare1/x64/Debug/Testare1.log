@@ -1,0 +1,17 @@
+﻿  Main.cpp
+c:\users\valia\documents\visual studio 2015\projects\testare1\testare1\loadmedia.h(59): error C2065: 'gFooTexture': undeclared identifier
+c:\users\valia\documents\visual studio 2015\projects\testare1\testare1\loadmedia.h(59): error C2228: left of '.loadFromFile' must have class/struct/union
+  c:\users\valia\documents\visual studio 2015\projects\testare1\testare1\loadmedia.h(59): note: type is 'unknown-type'
+c:\users\valia\documents\visual studio 2015\projects\testare1\testare1\loadmedia.h(65): error C2065: 'gBackgroundTexture': undeclared identifier
+c:\users\valia\documents\visual studio 2015\projects\testare1\testare1\loadmedia.h(65): error C2228: left of '.loadFromFile' must have class/struct/union
+  c:\users\valia\documents\visual studio 2015\projects\testare1\testare1\loadmedia.h(65): note: type is 'unknown-type'
+  LTexture.cpp
+  Init.cpp
+  Close.cpp
+c:\users\valia\documents\visual studio 2015\projects\testare1\testare1\close.cpp(17): error C2065: 'gFooTexture': undeclared identifier
+c:\users\valia\documents\visual studio 2015\projects\testare1\testare1\close.cpp(17): error C2228: left of '.free' must have class/struct/union
+  c:\users\valia\documents\visual studio 2015\projects\testare1\testare1\close.cpp(17): note: type is 'unknown-type'
+c:\users\valia\documents\visual studio 2015\projects\testare1\testare1\close.cpp(18): error C2065: 'gBackgroundTexture': undeclared identifier
+c:\users\valia\documents\visual studio 2015\projects\testare1\testare1\close.cpp(18): error C2228: left of '.free' must have class/struct/union
+  c:\users\valia\documents\visual studio 2015\projects\testare1\testare1\close.cpp(18): note: type is 'unknown-type'
+  Generating Code...
