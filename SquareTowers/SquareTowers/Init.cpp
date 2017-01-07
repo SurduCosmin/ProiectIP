@@ -10,18 +10,13 @@ bool Init()
 	}
 	if (!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1"))
 		printf("Warning: Linear texture filtering not enabled!");
-	Window = SDL_CreateWindow("Square Towers", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,  SCREEN_WIDTH,SCREEN_HEIGHT, SDL_WINDOW_FULLSCREEN);
+	Window = SDL_CreateWindow("Square Towers", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,  SCREEN_WIDTH,SCREEN_HEIGHT, SDL_WINDOW_FULLSCREEN_DESKTOP);
 	if (Window == NULL)
 	{
 		printf("Window could not be created! SDL Error: %s\n", SDL_GetError());
 		return  false;
 	}
 	Renderer = SDL_CreateRenderer(Window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-	if (Renderer == NULL)
-	{
-		printf("Renderer could not be created! SDL Error: %s\n", SDL_GetError());
-		return false;
-	}
 	int imgFlags = IMG_INIT_PNG;
 	if (!(IMG_Init(imgFlags) & imgFlags))
 	{

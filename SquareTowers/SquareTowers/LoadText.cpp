@@ -1,6 +1,5 @@
 #include"LoadText.h"
 
-
 SDL_Texture* loadFromRenderedText(string TextTitleureText, SDL_Color TextTitleColor)
 {
 	SDL_Surface* TextSurface = TTF_RenderText_Solid(Font, TextTitleureText.c_str(), TextTitleColor);

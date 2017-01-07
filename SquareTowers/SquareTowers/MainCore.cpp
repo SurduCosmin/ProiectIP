@@ -25,15 +25,14 @@ int main(int argc,char* argv[])
 			{
 				if (mainEvent.type == SDL_QUIT)  
 					Running = false;
-				if (mainEvent.type == SDL_MOUSEMOTION || mainEvent.type == SDL_MOUSEBUTTONDOWN || mainEvent.type == SDL_MOUSEBUTTONUP)
-				{
-					MainMenu(mainEvent);
-					
-				}
+				MainMenu(mainEvent);
 				if (mainEvent.key.keysym.sym == SDLK_ESCAPE)
 				{
 					ResetMenu(); MainMenu(mainEvent);
 				}
+			
+			
+			
 				
 				
 			}	
@@ -42,7 +41,7 @@ int main(int argc,char* argv[])
 
 	Close();
 
-	fillTable();
+	fillTable(gameTable);
 	for (int i = 0; i < TABLE_LENGTH; ++i) {
 		for (int j = 0; j < TABLE_LENGTH; ++j) {
 			cout << gameTable[i][j].base->currentSquare.color << '-';
@@ -74,7 +73,6 @@ int main(int argc,char* argv[])
 		cout << "\n\n\n";
 	}
 
-	
 	//system("pause");
 	return 0;
 }

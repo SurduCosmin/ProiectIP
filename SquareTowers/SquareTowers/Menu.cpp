@@ -1,8 +1,7 @@
 #include"Menu.h"
 void MainMenu(SDL_Event mainEvent)
 {
-	int flag[5] = { 0 };
-	int frame = 0;
+	int flag[5] = { 0 }; 
 	MouseTarget(mainEvent, TextStart);
 	{
 		if (action == BUTTON_MOUSE_OVER_MOTION)
@@ -11,7 +10,6 @@ void MainMenu(SDL_Event mainEvent)
 			flag[0] = 0;
 		if (action == BUTTON_MOUSE_UP)
 		{
-			MenuAuxiliar[0] = MainStart[0];
 			MainStart[0]= MainStart[1];
 			flagMainStart = 1;
 		}
@@ -22,10 +20,16 @@ void MainMenu(SDL_Event mainEvent)
 			else
 				flag[3] = 0;
 			if (action == BUTTON_MOUSE_UP)
-			{
-				MenuAuxiliar[3] = MainStartSingleplayer[0];
+			{	
 				MainStartSingleplayer[0] = MainStartSingleplayer[1];
-				//Here will be the singleplayer
+				CloseMenu();
+				Running2 = true;
+				
+			//	ClipsInit(8, 3);
+				SDL_RenderClear(Renderer);
+				SDL_RenderPresent(Renderer);
+				Singleplayer();
+
 			}
 		}
 		MouseTarget(mainEvent, TextSMPlayer[1]);
@@ -36,7 +40,6 @@ void MainMenu(SDL_Event mainEvent)
 				flag[4] = 0;
 			if (action == BUTTON_MOUSE_UP)
 			{
-				MenuAuxiliar[4] = MainStartMultiplayer[0];
 				MainStartMultiplayer[0] = MainStartMultiplayer[1];
 				//Here will be the multiplayer
 			}
@@ -50,7 +53,6 @@ void MainMenu(SDL_Event mainEvent)
 			flag[1] = 0;
 		if (action == BUTTON_MOUSE_UP)
 		{
-			MenuAuxiliar[1] = MainHighscores[0];
 			MainHighscores[0] = MainHighscores[1];
 			//Here will be the highscore
 		}
@@ -63,16 +65,13 @@ void MainMenu(SDL_Event mainEvent)
 			flag[2] = 0;
 		if (action == BUTTON_MOUSE_UP)
 		{
-			MenuAuxiliar[2] = MainQuitGame[0];
 			MainQuitGame[0] = MainQuitGame[1];
 			Running = false;
 		}
 	}
-
 	SDL_RenderClear(Renderer);
-
 	SDL_RenderCopy(Renderer, Background, 0, 0);
-	SDL_RenderCopy(Renderer, MainTitle[frame / 10], 0, &TextTitle);
+	SDL_RenderCopy(Renderer, MainTitle[frame /10], 0, &TextTitle);
 	SDL_RenderCopy(Renderer, MainStart[flag[0]], 0, &TextStart);
 	SDL_RenderCopy(Renderer, MainHighscores[flag[1]], 0, &TextHighscores);
 	SDL_RenderCopy(Renderer, MainQuitGame[flag[2]], 0, &TextQuitGame);
@@ -89,38 +88,20 @@ void MainMenu(SDL_Event mainEvent)
 		frame = 0;
 }
 void ResetMenu()
-{
-	/*int frame = 0;
-
-	MainStart[0]=MenuAuxiliar[0] ;
-	MainHighscores[0]=MenuAuxiliar[1];
-	MainQuitGame[0]=MenuAuxiliar[2];
-	MainStartSingleplayer[0] = MenuAuxiliar[3];
-	MainStartMultiplayer[0]= MenuAuxiliar[4];
-
-	SDL_RenderClear(Renderer);
-
-	SDL_RenderCopy(Renderer, Background, 0, 0);
-	SDL_RenderCopy(Renderer, MainTitle[0], 0, &TextTitle);
-	SDL_RenderCopy(Renderer, MainStart[0], 0, &TextStart);
-	SDL_RenderCopy(Renderer, MainHighscores[0], 0, &TextHighscores);
-	SDL_RenderCopy(Renderer, MainQuitGame[0], 0, &TextQuitGame);
-	if (flagMainStart)
-	{
-		SDL_RenderCopy(Renderer, ArrowPointer, 0, &TextArrow[0]);
-		SDL_RenderCopy(Renderer, ArrowPointer, 0, &TextArrow[1]);
-		SDL_RenderCopy(Renderer, MainStartSingleplayer[0], 0, &TextSMPlayer[0]);
-		SDL_RenderCopy(Renderer, MainStartMultiplayer[0], 0, &TextSMPlayer[1]);
-	}
-	SDL_RenderPresent(Renderer);
-	++frame;
-	if (frame / 10 >= 10)
-		frame = 0;*/
-
+{	
 	flagMainStart = 0;
-	MainStart[0] = loadFromRenderedText("START GAME", textTitles[0]);
-	MainHighscores[0] = loadFromRenderedText("HIGHSCORES", textTitles[0]);
-	MainQuitGame[0] = loadFromRenderedText("QUIT GAME", textTitles[0]);
-	MainStartSingleplayer[0] = loadFromRenderedText("SINGLEPLAYER", textTitles[0]);
-	MainStartMultiplayer[0] = loadFromRenderedText("MULTIPLAYER", textTitles[0]);
+	Background = loadTexture("Images/lumber.png");
+	for (int i = 0; i < 10; i++)
+	{
+		MainTitle[i] = loadFromRenderedText("SQUARE TOWERS", textColor[i]);
+		if (i > 1)continue;
+		MainStart[i] = loadFromRenderedText("START GAME", textTitles[i]);
+		MainHighscores[i] = loadFromRenderedText("HIGHSCORES", textTitles[i]);
+		MainQuitGame[i] = loadFromRenderedText("QUIT GAME", textTitles[i]);
+		MainStartSingleplayer[i] = loadFromRenderedText("SINGLEPLAYER", textTitles[i]);
+		MainStartMultiplayer[i] = loadFromRenderedText("MULTIPLAYER", textTitles[i]);
+		if (i > 0)continue;
+		ArrowPointer = loadFromRenderedText("-", textTitles[0]);
+		
+	}
 }

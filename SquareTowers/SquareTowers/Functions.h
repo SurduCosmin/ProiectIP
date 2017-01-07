@@ -14,7 +14,7 @@ square popFromQueue(tower &current);
 
 square generateSquare();
 
-void fillTable();
+void fillTable(tower gameTable[MAX_PATTERN][MAX_PATTERN]);
 
 void moveTower(position source, position destination);
 
@@ -27,6 +27,8 @@ void reduceTower(tower &currentTower);
 void generatePattern(int patternArray[]);
 
 bool checkPattern(int patternArray[], int obtainedArray[]);
+
+
 
 
 

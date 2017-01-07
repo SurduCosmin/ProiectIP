@@ -47,7 +47,7 @@ square generateSquare() {
 	return currentSquare;
 }
 
-void fillTable() {
+void fillTable(tower gameTable[MAX_PATTERN][MAX_PATTERN]) {
 	for (int index = 0; index < TABLE_LENGTH; ++index) {
 		for (int jndex = 0; jndex < TABLE_LENGTH; ++jndex) {
 			gameTable[index][jndex].base = new level;
