@@ -146,10 +146,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="functions.cpp" />
     <ClCompile Include="mainCore.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="declarations.h" />
     <ClInclude Include="functions.h" />
     <ClInclude Include="structures.h" />
   </ItemGroup>

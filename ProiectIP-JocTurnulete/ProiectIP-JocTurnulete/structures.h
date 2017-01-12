@@ -1,3 +1,11 @@
+#define TABLE_LENGTH 4
+#define MAX_TOWER_ALLOWED 4
+#define MAX_PATTERN 4
+
+long long totalScore;
+int obtainedArray[MAX_PATTERN];
+
+
 struct square {
 	int color;
 	// 1-Albastru
@@ -9,11 +17,13 @@ struct square {
 
 struct level {
 	square currentSquare;
-	level *next=NULL;
+	level *next=nullptr;
 };
+
 struct tower {
 	int numberOfLevels;
-	level *level;
+	level *base;
+	level *top;
 };
 
 struct position {
@@ -22,3 +32,4 @@ struct position {
 	int y;
 };
 
+tower gameTable[TABLE_LENGTH][TABLE_LENGTH];
