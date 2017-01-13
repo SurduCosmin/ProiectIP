@@ -1,0 +1,2 @@
+Jocul nostru cu turnulete foloseste biblitecile SDL 2.05. Nu are nevoie de nimic altceva sa functioneze. El ruleaza simplu, dupa care se intelege foarte usor din interfata ce e de facut.
+Nu mai este nimic de adaugat. Jocul este deja functional. 
